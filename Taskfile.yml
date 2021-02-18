@@ -26,7 +26,9 @@ tasks:
     desc: Build Yarn workspaces
     deps: ["workspaces:setup"]
     cmds:
-      - yarn wsrun --stages --report --fast-exit --exclude-missing ws:build
+      - >
+        docker-compose run devel
+        yarn wsrun --stages --report --fast-exit --exclude-missing ws:build
     sources:
       - !workspaces/*/build/**/*
     generates:

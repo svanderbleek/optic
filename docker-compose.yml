@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  devel:
+    image: optic/devel
+    build:
+      context: docker/devel
+    volumes:
+      - ./:/optic
+    working_dir: /optic
+    networks: [optic]
+
+networks:
+  optic:
+    name: optic
+    external: true
