@@ -5,8 +5,11 @@ services:
     image: optic/devel
     build:
       context: docker/devel
+      dockerfile: Dockerfile
     volumes:
-      - ./:/optic
+      - ~/.ssh:/root/.ssh
+      - ~/.gitconfig:/root/.gitconfig
+    #   - ./:/optic:delegated
     working_dir: /optic
     networks: [optic]
 
